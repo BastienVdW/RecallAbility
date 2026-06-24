@@ -22,6 +22,10 @@
 #include "System/Random/RecallRandomNumberSubsystem.h"
 #include "Utility/Simulation/RecallSimulationUtils.h"
 
+#if UE_BUILD_DEBUG || UE_BUILD_DEVELOPMENT
+#include "DrawDebugHelpers.h"
+#endif // UE_BUILD_DEBUG || UE_BUILD_DEVELOPMENT
+
 //----------------------------------------------------------------------//
 // URecallAbilityChainDestructor
 //----------------------------------------------------------------------//
@@ -152,8 +156,6 @@ void URecallAbilityChainInputProcessor::Execute(FMassEntityManager& EntityManage
 URecallAbilityChainProcessor::URecallAbilityChainProcessor(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
-	ExecutionFlags = static_cast<int32>(EProcessorExecutionFlags::All);
-	ProcessingPhase = EMassProcessingPhase::PrePhysics;
 	ExecutionOrder.ExecuteInGroup = Recall::Ability::ProcessorGroupNames::PrePhysics::AbilityChain;
 	ExecutionOrder.ExecuteAfter.Add(Recall::Ability::ProcessorGroupNames::PrePhysics::AbilityChainInput);
 }
