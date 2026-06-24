@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "MassEntityElementTypes.h"
-#include "MassEntityHandle.h"
+#include "Mass/EntityElementTypes.h"
+#include "Mass/EntityHandle.h"
+#include "Mass/ExternalSubsystemTraits.h"
 #include "Simulation/Hitbox/RecallHitTypes.h"
 
 #include "RecallHitboxFragments.generated.h"
@@ -47,6 +48,10 @@ struct RECALLHITBOX_API FRecallHitboxFragment : public FMassFragment
 	UPROPERTY(VisibleAnywhere)
 	TArray<FRecallHit> Hits;
 };
+
+template <>
+struct TMassFragmentTraits<FRecallHitboxFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };
 
 USTRUCT()
 struct RECALLHITBOX_API FRecallHitboxConstSharedFragment : public FMassConstSharedFragment

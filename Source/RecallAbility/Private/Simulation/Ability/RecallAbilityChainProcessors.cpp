@@ -29,8 +29,8 @@ URecallAbilityChainDestructor::URecallAbilityChainDestructor()
 	: EntityQuery(*this)
 {
 	ExecutionFlags = static_cast<int32>(EProcessorExecutionFlags::All);
-	ObservedType = FRecallAbilityChainFragment::StaticStruct();
-	Operation = EMassObservedOperation::Remove;
+	ObservedTypes.Add(FRecallAbilityChainFragment::StaticStruct());
+	ObservedOperations = EMassObservedOperationFlags::Remove;
 }
 
 void URecallAbilityChainDestructor::InitializeInternal(UObject& Owner, const TSharedRef<FMassEntityManager>& InEntityManager)
@@ -91,7 +91,7 @@ void URecallAbilityChainInputProcessor::InitializeInternal(UObject& Owner, const
 void URecallAbilityChainInputProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager)
 {
 	FMassTagBitSet RequiredTags;
-	RequiredTags.Add(*FRecallAbilityChainActiveTag::StaticStruct());
+	RequiredTags.Add(FRecallAbilityChainActiveTag::StaticStruct());
 	
 	EntityQuery.AddRequirement<FRecallAbilityChainInputFragment>(EMassFragmentAccess::ReadWrite);
 	EntityQuery.AddTagRequirements<EMassFragmentPresence::All>(RequiredTags);
@@ -301,7 +301,7 @@ void URecallAbilityChainProcessor::SignalEntities(FMassEntityManager& EntityMana
 			{
 				const int32 RandomSeed = RandomNumberSystem.GetRandomStream().RandRange(
 					TNumericLimits<int32>::Min(), TNumericLimits<int32>::Max());
-				StateTreeContext.Start(nullptr, RandomSeed);
+				StateTreeContext.Start(FStateTreeExecutionContext::FStartParameters{ .RandomSeed = RandomSeed });
 				AbilityChainFragment.LastUpdateTimeInSeconds = TimeInSeconds;
 			}
 			else
@@ -353,7 +353,7 @@ void URecallAbilityChainDebugRepresentationProcessor::ConfigureQueries(const TSh
 {
 #if UE_BUILD_DEBUG || UE_BUILD_DEVELOPMENT
 	FMassTagBitSet RequiredTags;
-	RequiredTags.Add(*FRecallAbilityChainActiveTag::StaticStruct());
+	RequiredTags.Add(FRecallAbilityChainActiveTag::StaticStruct());
 	
 	EntityQuery.AddRequirement<FRecallTransformFragment>(EMassFragmentAccess::ReadOnly);
 	EntityQuery.AddRequirement<FRecallAbilityChainFragment>(EMassFragmentAccess::ReadOnly);

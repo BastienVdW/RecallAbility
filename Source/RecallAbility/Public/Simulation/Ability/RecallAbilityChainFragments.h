@@ -6,7 +6,8 @@
 
 #pragma once
 
-#include "MassEntityElementTypes.h"
+#include "Mass/EntityElementTypes.h"
+#include "Mass/ExternalSubsystemTraits.h"
 #include "System/AI/RecallStateTreeInstanceTypes.h"
 #include "System/Asset/RecallAssetManagerTypes.h"
 
@@ -119,3 +120,11 @@ private:
 	static FCriticalSection AbilityChainToIndexMapGuard;
 	static int32 GetAbilityChainIndex(const FGameplayTag& AbilityChain);
 };
+
+template <>
+struct TMassFragmentTraits<FRecallAbilityChainFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };
+
+template <>
+struct TMassFragmentTraits<FRecallAbilityChainInputFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };

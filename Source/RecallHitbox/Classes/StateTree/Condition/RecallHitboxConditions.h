@@ -16,7 +16,7 @@ struct RECALLHITBOX_API FRecallHitConditionInstanceData
 {
 	GENERATED_BODY()
 };
-STATETREE_POD_INSTANCEDATA(FRecallHitConditionInstanceData);
+UE_STATETREE_ZEROED_TRIVIALLY_COPIED_NO_DESTRUCTOR_INSTANCEDATA(FRecallHitConditionInstanceData);
 
 USTRUCT(DisplayName="Hit Taken")
 struct RECALLHITBOX_API FRecallHitCondition : public FRecallStateTreeConditionBase

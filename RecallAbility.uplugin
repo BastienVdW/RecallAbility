@@ -38,10 +38,6 @@
 	],
 	"Plugins": [
 		{
-			"Name": "Mass",
-			"Enabled": true
-		},
-		{
 			"Name": "Recall",
 			"Enabled": true
 		},

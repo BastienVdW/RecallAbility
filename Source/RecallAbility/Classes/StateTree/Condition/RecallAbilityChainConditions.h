@@ -21,7 +21,7 @@ struct RECALLABILITY_API FRecallAbilityChainInputPressedConditionInstanceData
 	UPROPERTY(EditAnywhere, Category=Parameter, meta=(ClampMin=1, ClampMax=120))
 	int32 InputBufferDuration = 1;
 };
-STATETREE_POD_INSTANCEDATA(FRecallAbilityChainInputPressedConditionInstanceData);
+UE_STATETREE_ZEROED_TRIVIALLY_COPIED_NO_DESTRUCTOR_INSTANCEDATA(FRecallAbilityChainInputPressedConditionInstanceData);
 
 USTRUCT(DisplayName="Was Input Pressed")
 struct RECALLABILITY_API FRecallAbilityChainInputPressedCondition :
@@ -50,7 +50,7 @@ struct RECALLABILITY_API FRecallAbilityChainInputHeldConditionInstanceData
 	UPROPERTY(EditAnywhere, Category=Parameter, meta=(GameplayTagFilter="AbilityChain"))
 	FGameplayTag AbilityChain;
 };
-STATETREE_POD_INSTANCEDATA(FRecallAbilityChainInputHeldConditionInstanceData);
+UE_STATETREE_ZEROED_TRIVIALLY_COPIED_NO_DESTRUCTOR_INSTANCEDATA(FRecallAbilityChainInputHeldConditionInstanceData);
 
 USTRUCT(DisplayName="Is Input Held")
 struct RECALLABILITY_API FRecallAbilityChainInputHeldCondition :
@@ -76,7 +76,7 @@ struct RECALLABILITY_API FRecallAbilityChainTransitionConditionInstanceData
 {
 	GENERATED_BODY()
 };
-STATETREE_POD_INSTANCEDATA(FRecallAbilityChainTransitionConditionInstanceData);
+UE_STATETREE_ZEROED_TRIVIALLY_COPIED_NO_DESTRUCTOR_INSTANCEDATA(FRecallAbilityChainTransitionConditionInstanceData);
 
 /** 
  * Can transition out of the current ability.

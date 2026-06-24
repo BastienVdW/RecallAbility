@@ -8,7 +8,7 @@
 
 #include "CoreMinimal.h"
 #include "Hitbox/RecallAttackTypes.h"
-#include "MassEntityHandle.h"
+#include "Mass/EntityHandle.h"
 
 struct RECALLHITBOX_API FRecallAttack
 {

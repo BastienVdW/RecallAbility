@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "MassEntityHandle.h"
+#include "Mass/EntityHandle.h"
 #include "Hitbox/RecallAttackTypes.h"
 
 #include "RecallHitTypes.generated.h"

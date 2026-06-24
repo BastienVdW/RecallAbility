@@ -158,7 +158,7 @@ void URecallProjectileInitializeProcessor::InitializeInternal(UObject& Owner, co
 void URecallProjectileInitializeProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager)
 {
 	FMassTagBitSet InvalidTags;
-	InvalidTags.Add(*FRecallProjectileInitializedTag::StaticStruct());
+	InvalidTags.Add(FRecallProjectileInitializedTag::StaticStruct());
 
 	EntityQuery.AddRequirement<FRecallProjectileFragment>(EMassFragmentAccess::ReadOnly);
 	EntityQuery.AddRequirement<FRecallTransformFragment>(EMassFragmentAccess::ReadOnly);

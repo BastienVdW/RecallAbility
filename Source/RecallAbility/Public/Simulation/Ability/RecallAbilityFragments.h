@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "MassEntityElementTypes.h"
-#include "MassEntityHandle.h"
+#include "Mass/EntityElementTypes.h"
+#include "Mass/EntityHandle.h"
+#include "Mass/ExternalSubsystemTraits.h"
 
 #include "RecallAbilityFragments.generated.h"
 
@@ -206,3 +207,11 @@ struct RECALLABILITY_API FRecallAbilityAnimationFragment : public FMassFragment
 		bTimelineEnd = false;
 	}
 };
+
+template <>
+struct TMassFragmentTraits<FRecallAbilityFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };
+
+template <>
+struct TMassFragmentTraits<FRecallAbilityAnimationFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };

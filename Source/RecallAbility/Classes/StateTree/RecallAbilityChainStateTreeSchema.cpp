@@ -7,7 +7,7 @@
 
 #include "RecallAbilityChainStateTreeSchema.h"
 
-#include "MassEntityElementTypes.h"
+#include "Mass/EntityElementTypes.h"
 #include "RecallAbilityChainStateTreeConditionBase.h"
 #include "RecallAbilityChainStateTreeEvaluatorBase.h"
 #include "RecallAbilityChainStateTreeTaskBase.h"

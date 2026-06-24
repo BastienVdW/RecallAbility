@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "MassEntityElementTypes.h"
-#include "MassEntityHandle.h"
+#include "Mass/EntityElementTypes.h"
+#include "Mass/EntityHandle.h"
+#include "Mass/ExternalSubsystemTraits.h"
 #include "Data/Projectile/RecallProjectileStateTypes.h"
 
 #include "RecallProjectileFragments.generated.h"
@@ -62,6 +63,10 @@ struct RECALLPROJECTILEMODULE_API FRecallProjectileFragment : public FMassFragme
 	UPROPERTY(VisibleAnywhere)
 	FMassEntityHandle TargetEntity;
 };
+
+template <>
+struct TMassFragmentTraits<FRecallProjectileFragment> final
+{ enum { AuthorAcceptsItsNotTriviallyCopyable = true }; };
 
 USTRUCT()
 struct RECALLPROJECTILEMODULE_API FRecallProjectileConstSharedFragment : public FMassConstSharedFragment

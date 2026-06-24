@@ -9,8 +9,8 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "System/Interface/RecallSimulationReactSystemInterface.h"
-#include "MassExternalSubsystemTraits.h"
-#include "MassEntityHandle.h"
+#include "Mass/ExternalSubsystemTraits.h"
+#include "Mass/EntityHandle.h"
 #include "Containers/RingBuffer.h"
 #include "Simulation/Projectile/RecallProjectileTypes.h"
 
